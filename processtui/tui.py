@@ -1,28 +1,15 @@
 import argparse
-import asyncio
+from email.policy import default
 import json
-from this import d
-import this
-from time import sleep
 from typing import Type
-from typing_extensions import Self
-from aiohttp import TraceDnsCacheMissParams
-from click import command
 from pydantic import BaseModel
-from rich.console import RenderableType
-from textual import events
-from textual.containers import Container, Vertical
+from textual.containers import Container
 from textual.app import App, ComposeResult, CSSPathType
-from textual.widgets import Button, Static, Input
-from textual.widget import Widget, AwaitMount
-from textual.reactive import reactive
+from textual.widgets import Static
+from textual.widget import Widget
 from textual.driver import Driver
-from textual.screen import Screen
-from rich.syntax import Syntax
-from pygments.lexers.special import OutputLexer
-import os
 
-from logviewer import LogViewer
+from processtui.logviewer import LogViewer
 
 
 CommandIdentifier = str
@@ -93,7 +80,7 @@ class MainTUI(App):
 
     def compose(self) -> ComposeResult:
         yield ServicesBar(id="sidebar", command_definitions=self.command_definitions)
-        yield Container(*([Static(f"text{i}") for i in range(0, 500)]), id="body")
+        yield Container(id="body")
 
     def action_toggle_logs(self) -> None:
         if self.logs:

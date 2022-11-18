@@ -1,14 +1,13 @@
 [tool.poetry]
-name = "process-tui"
+name = "processtui"
 version = "0.1.0"
 description = ""
 authors = ["Tiago Lime, The Lime <tiago@myurbanjungle.com>"]
 readme = "README.md"
-packages = [{include = "process_tui"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-textual = {extras = ["dev"], version = "^0.2.1"}
+textual = {extras = ["dev"], version = "^0.4.0"}
 asyncio = "^3.4.3"
 pydantic = "^1.10.2"
 
